@@ -58,7 +58,7 @@ def create_tf_record(output_filename,
                      annotations_path):
     writer = tf.python_io.TFRecordWriter(output_filename)
     for idx, sample in enumerate(samples_list):
-        for idx % 100 == 0:
+        if idx % 100 == 0:
             print 'On image %d of %d', idx, len(samples_list)
         tf_sample = dict_to_tf_sample(sample, 
                                       label_map_dict, 
